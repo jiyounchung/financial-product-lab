@@ -1,2 +1,28 @@
-# financial-product-lab
-Financial Product Planning, Data Analytics &amp; Customer Experience Portfolio
+# 체크카드 상품기획 포트폴리오 (개인 프로젝트, 비공식)
+케이뱅크와 공식 관련이 없는 개인 포트폴리오입니다. 실제 경력이 아닌 개인 기획 프로젝트이며 모든 데이터는 가상입니다.
+
+## 구현 기능
+캐시백 시뮬레이터(프리셋·유효성 검사·실시간 막대그래프), 모바일 Concept UI 4화면, 필터 연동 KPI·차트 5종, 세그먼트 비교, SQL 5종(복사 기능), CSV 다운로드, A/B 설계안, 사업 영향 시뮬레이터, 경험 사례.
+
+## 실행 방법
+`index.html`을 브라우저로 열면 됩니다. 서버·Node.js·npm·API 키가 필요 없습니다. 계산 테스트는 선택 사항입니다: `node tests.js`.
+
+## 파일 구조
+index.html, styles.css, script.js(UI), logic.js(계산 로직), data.js(가상 데이터·SQL 정의), tests.js, analysis.sql, README.md
+
+## 데이터 생성 기준
+시드 20261115 PRNG로 고객 1,000명의 2026-07~09 결제를 생성합니다(월 활성 확률 88%). 유형별 객단가·빈도·온라인 비중이 다르며 건별 캐시백은 한도와 전월실적을 반영하지 않습니다.
+
+## 분석 로직
+지표 정의는 사이트의 "지표 정의"에 있습니다. 활성 고객은 결제 1회 이상 고객-월 쌍 기준입니다. SQL은 SQLite용이며 `.mode csv`, `.import transactions.csv transactions`로 재현합니다.
+
+## 상품 정보 출처
+**공식 상품설명서를 확인하지 못했습니다.** 369·모두 다·여기서 더 캐시백의 혜택률, 한도, 실적 기준은 모두 `logic.js`의 가정값입니다. 게시 전에 공식 자료로 대조하고 출처와 기준일을 추가하세요.
+
+## 가정 및 한계
+가상 데이터, 단순화한 혜택 규칙, 실험 미실시(A/B는 설계안), 사업 시뮬레이터 수치는 시나리오 가정입니다.
+
+## GitHub Pages 배포
+저장소 루트에 파일 업로드 → Settings > Pages > Deploy from a branch > main / (root). 모든 경로가 상대 경로라 하위 경로에서도 작동합니다.
+
+AI 보조 코딩으로 제작했습니다.
